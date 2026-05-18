@@ -1,80 +1,109 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 
 <head>
     <meta charset="utf-8">
     <meta http-equiv="Content-Security-Policy"
     content="
-        default-src 'self' data: https://ssl.gstatic.com https://fonts.gstatic.com https://cdn.jsdelivr.net https://fonts.googleapis.com 'unsafe-eval';
-        connect-src 'self' https://api.spaceflightnewsapi.net;
-        style-src https://cdn.jsdelivr.net https://fonts.googleapis.com 'self' 'unsafe-inline';
+        default-src 'self' data: https://ssl.gstatic.com https://fonts.gstatic.com https://fonts.googleapis.com 'unsafe-eval';
+        connect-src 'self' https://pokeapi.co;
+        style-src https://fonts.googleapis.com 'self' 'unsafe-inline';
         media-src *;
-        img-src 'self' data: content:;
+        img-src 'self' data: content: https://raw.githubusercontent.com;
     ">
     <meta name="format-detection" content="telephone=no">
     <meta name="msapplication-tap-highlight" content="no">
     <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
-    <title>Materialize 2025</title>
-    <!-- Fonts Google -->
+    <meta name="color-scheme" content="light dark">
+    <title>PokéDex Explorer</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
-    <!-- CSS materialize -->
     <link rel="stylesheet" href="css/materialize.min.css" />
-    <!-- CSS personalitzat -->
     <link rel="stylesheet" href="css/style.css" media="screen,projection" />
 </head>
 
 <body>
 
-    <nav> <!-- navbar content here  --> </nav>
+    <nav class="red darken-2">
+        <div class="nav-wrapper container">
+            <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+            <a href="#" class="brand-logo center"><i class="material-icons left">pets</i>PokéDex</a>
+        </div>
+    </nav>
+
     <ul id="slide-out" class="sidenav">
         <li>
-            <div class="user-view">
-                <div class="background">
-                    <img src="images/office.jpg">
-                </div>
-                <a href="#user"><img class="circle" src="images/yuna.jpg"></a>
-                <a href="#name"><span class="white-text name">John Doe</span></a>
-                <a href="#email"><span class="white-text email">jdoe@example.com</span></a>
+            <div class="user-view red darken-2" style="padding: 32px 16px;">
+                <span class="white-text name">PokéDex Explorer</span>
+                <span class="white-text email">pokeapi.co</span>
             </div>
         </li>
-        <li><a href="#!"><i class="material-icons">cloud</i>First Link With Icon</a></li>
-        <li><a href="#!">Second Link</a></li>
-        <li>
-            <div class="divider"></div>
-        </li>
-        <li><a class="subheader">Subheader</a></li>
-        <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
+        <li><a href="#tab-inicio" class="nav-tab-link"><i class="material-icons">home</i>Inicio</a></li>
+        <li><a href="#tab-pokedex" class="nav-tab-link"><i class="material-icons">pets</i>Pokédex</a></li>
+        <li><a href="#tab-info" class="nav-tab-link"><i class="material-icons">info</i>Información</a></li>
     </ul>
-    <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
 
-    <!-- AQUI VAN ELS CONTINGUTS -->
-
-    <div class="row">
-        <div class="col s12">
-            <ul class="tabs tabs-fixed-width tab-demo tabs-horizontal z-depth-1">
-                <li class="tab"><a href="#image-test1"><i class="material-icons">flight</i>Flight</a></li>
-                <li class="tab"><a class="active" href="#image-test2"><i class="material-icons">luggage</i>Luggage</a>
-                </li>
-                <li class="tab"><a href="#image-test3"><i class="material-icons">music-cast</i>Noticias</a></li>
-            </ul>
-            
-
-            <!-- Contenido -->
-            <div id="image-test1" class="col s12">Flight</div>
-            <div id="image-test2" class="col s12">Luggage</div>
-            <div id="image-test3">
-                <p><button id="load-bands">Cargar Noticias</button></p>
-                <div id="band-list"></div>
+    <main class="container main-content">
+        <div class="row">
+            <div class="col s12">
+                <ul class="tabs tabs-fixed-width z-depth-1">
+                    <li class="tab col s4"><a href="#tab-inicio"><i class="material-icons">home</i>Inicio</a></li>
+                    <li class="tab col s4"><a class="active" href="#tab-pokedex"><i class="material-icons">pets</i>Pokédex</a></li>
+                    <li class="tab col s4"><a href="#tab-info"><i class="material-icons">info</i>Info</a></li>
+                </ul>
             </div>
         </div>
-    </div>
 
-        <!-- cordova lib -->
-        <script src="cordova.js"></script>
-        <!-- Compiled and minified JavaScript -->
-        <script src="js/materialize.min.js"></script>
-        <!-- init -->
-        <script src="js/index.js"></script>
+        <div id="tab-inicio" class="col s12 section-panel">
+            <div class="card hero-card z-depth-2">
+                <div class="card-content center-align">
+                    <img src="img/logo.png" alt="Logo" class="hero-logo responsive-img">
+                    <span class="card-title">Bienvenido al PokéDex</span>
+                    <p>Explora criaturas de la primera generación usando la API pública de Pokémon. Sin registro ni clave API.</p>
+                    <a href="#tab-pokedex" class="btn-large waves-effect waves-light red darken-2 btn-go-pokedex">
+                        <i class="material-icons left">search</i>Explorar Pokémon
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div id="tab-pokedex" class="col s12 section-panel">
+            <div class="section-header center-align">
+                <h5>Catálogo Pokémon</h5>
+                <p class="grey-text text-darken-1">Generación I — Kanto (24 Pokémon)</p>
+            </div>
+            <div class="center-align">
+                <button id="load-pokemon" class="btn-large waves-effect waves-light red darken-2">
+                    <i class="material-icons left">refresh</i>Cargar Pokémon
+                </button>
+            </div>
+            <div id="pokemon-status" class="center-align hide"></div>
+            <div id="pokemon-list" class="row"></div>
+        </div>
+
+        <div id="tab-info" class="col s12 section-panel">
+            <div class="card z-depth-1">
+                <div class="card-content">
+                    <span class="card-title"><i class="material-icons left red-text text-darken-2">cloud</i>API utilizada</span>
+                    <p><strong>PokeAPI</strong> — <a href="https://pokeapi.co/" target="_blank" rel="noopener">pokeapi.co</a></p>
+                    <p>API REST gratuita y de código abierto con datos de Pokémon, movimientos, tipos y más.</p>
+                </div>
+            </div>
+            <div class="card z-depth-1">
+                <div class="card-content">
+                    <span class="card-title"><i class="material-icons left red-text text-darken-2">phone_android</i>Tecnologías</span>
+                    <ul class="collection">
+                        <li class="collection-item">Apache Cordova</li>
+                        <li class="collection-item">Materialize CSS</li>
+                        <li class="collection-item">Fetch API (JavaScript)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="cordova.js"></script>
+    <script src="js/materialize.min.js"></script>
+    <script src="js/index.js"></script>
 
 </body>
 </html>

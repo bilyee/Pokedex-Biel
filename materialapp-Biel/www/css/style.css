@@ -1,26 +1,208 @@
-/* Espaciado entre tarjetas */
-.card {
-    margin: 15px 0;
-    transition: transform 0.2s;
+/* PokéDex Explorer — estilos personalizados */
+
+body {
+    background: linear-gradient(160deg, #f5f5f5 0%, #e8eaf6 50%, #fff8e1 100%);
+    min-height: 100vh;
+    text-transform: none;
+    font-family: 'Segoe UI', Roboto, sans-serif;
 }
 
-.card:hover {
-    transform: scale(1.02);
+.main-content {
+    padding-top: 1rem;
+    padding-bottom: 2rem;
 }
 
-/* Texto dentro de la tarjeta */
-.card .card-content p {
+nav .brand-logo {
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+nav .brand-logo i {
+    line-height: inherit;
+}
+
+.section-panel {
+    margin-top: 1rem;
+}
+
+.tabs .tab a {
+    color: #c62828;
+}
+
+.tabs .tab a:hover,
+.tabs .tab a.active {
+    color: #b71c1c;
+}
+
+.tabs .indicator {
+    background-color: #d32f2f;
+}
+
+.tabs .material-icons {
+    vertical-align: middle;
+    margin-right: 4px;
+    font-size: 1.2rem;
+}
+
+/* Hero / inicio */
+.hero-card {
+    border-radius: 12px;
+    margin-top: 0.5rem;
+    background: #fff;
+}
+
+.hero-card .card-title {
+    color: #b71c1c;
+    font-weight: 700;
+    font-size: 1.6rem;
+}
+
+.hero-logo {
+    max-width: 120px;
+    margin: 0 auto 1rem;
+    opacity: 0.9;
+}
+
+.section-header h5 {
+    color: #37474f;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+}
+
+/* Tarjetas Pokémon */
+.pokemon-card {
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    background: #fff;
+}
+
+.pokemon-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15) !important;
+}
+
+.pokemon-image {
+    background: linear-gradient(180deg, #ef5350 0%, #ffeb3b 100%);
+    padding: 1rem;
+    position: relative;
+    min-height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pokemon-image img {
+    max-height: 160px;
+    width: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+}
+
+.pokemon-id {
+    position: absolute;
+    top: 8px;
+    right: 12px;
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.pokemon-card .card-content {
+    padding: 1rem 1.25rem 1.25rem;
+}
+
+.pokemon-card .card-title {
+    color: #263238;
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.type-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 0.75rem;
+}
+
+.type-chip {
+    display: inline-block;
+    color: #fff;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 4px 12px;
+    border-radius: 20px;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+    text-transform: capitalize;
+}
+
+.pokemon-stats {
+    color: #546e7a;
     font-size: 0.9rem;
-    color: white;
+    margin: 0;
 }
 
-/* Imagen dentro de la tarjeta */
-.card .card-image img {
-    height: 180px;
-    object-fit: cover;
+.pokemon-stats .material-icons.tiny {
+    font-size: 1rem;
+    vertical-align: text-bottom;
 }
 
-/* Botón cargar noticias centrado */
-#load-bands {
-    margin-bottom: 20px;
+#load-pokemon {
+    margin: 1rem 0 1.5rem;
+}
+
+#pokemon-status {
+    margin: 1rem 0;
+}
+
+#pokemon-status .preloader-wrapper {
+    margin: 0 auto 0.5rem;
+}
+
+.sidenav .user-view {
+    min-height: 100px;
+}
+
+.sidenav .user-view .name {
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.collection .collection-item {
+    border-left: 4px solid #d32f2f;
+}
+
+@media (prefers-color-scheme: dark) {
+    body {
+        background: linear-gradient(160deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    }
+
+    .hero-card,
+    .pokemon-card,
+    .card {
+        background: #263238;
+    }
+
+    .hero-card .card-title,
+    .pokemon-card .card-title,
+    .card .card-title {
+        color: #ff8a80;
+    }
+
+    .pokemon-card .card-content p,
+    .card-content p {
+        color: #b0bec5;
+    }
+
+    .section-header h5 {
+        color: #eceff1;
+    }
+
+    .tabs {
+        background: #37474f;
+    }
 }
